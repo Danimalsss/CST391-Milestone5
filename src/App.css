@@ -1,0 +1,109 @@
+.container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin: 10px;
+  padding: 5px;
+}
+
+.navbar-brand {
+  font-family: "Rouge Script", cursive;
+  font-size: 30px !important;
+  font-weight: 400; /* Optional */
+  color: #CAC4CE !important;
+}
+
+.navbar {
+  background-color:#242038;
+}
+
+.navbar-nav .nav-link {
+  color: #333; /* Default text color */
+  text-decoration: none; /* Remove underline */
+}
+
+/* Change the link color to red on hover */
+.navbar-nav .nav-link:hover {
+  color: red !important; /* Red color on hover */
+  text-decoration: none; /* Ensure no underline on hover */
+}
+
+
+
+body {
+  background-color: #F7ECE1 !important;
+}
+
+/* App container styling */
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height */
+  margin-top: 0px; /* Reduced space from the top of the page */
+}
+
+/* Container for the cards */
+.homeCard-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+/* Styling for individual cards */
+.homeCard {
+  background-color: #607d8b;
+  padding: 30px;
+  width: 250px;
+  height: auto; /* Adjust height based on content */
+  display: flex;
+  flex-direction: column; /* Stack title and text vertically */
+  justify-content: flex-start; /* Align content at the top */
+  align-items: center;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  border-radius: 12px;
+  transition: transform 0.3s ease-in-out;
+  cursor: pointer;
+  text-align: center;
+  overflow: hidden; /* Ensure content stays within the card */
+}
+
+/* Hover effect for the cards */
+.homeCard:hover {
+  transform: scale(1.15);
+}
+
+
+/* Title styling */
+.homeCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  font-family: 'Arial', sans-serif;
+  font-weight: bold;
+  position: relative;
+  padding: 5px;  /* Padding inside the border */
+  border: 2px solid #F7ECE1; /* Border around the text */
+  display: inline-block;  /* Makes the border wrap tightly around the text */
+  border-radius: 8px;  /* Optional: rounded corners for the border */
+  color: #F7ECE1;
+  /* Text border effect using text-shadow */
+  text-shadow: 
+    1px 1px 0 #242038,  /* Right-top shadow */
+    -1px -1px 0 #242038,  /* Left-bottom shadow */
+    1px -1px 0 #242038,  /* Right-bottom shadow */
+    -1px 1px 0 #242038;  /* Left-top shadow */
+}
+
+/* Paragraph text styling */
+.homeCard p {
+  font-size: 1rem;
+  font-family: 'Arial', sans-serif;
+  color: #F7ECE1;
+  line-height: 1.5;
+  margin-top: 0;
+}
+
+
