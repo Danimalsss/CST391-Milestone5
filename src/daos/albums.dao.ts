@@ -1,0 +1,91 @@
+import { OkPacket } from 'mysql';
+import { execute } from '../services/mysql.connector';
+import { Album } from '../models/albums.model';
+import { albumQueries } from '../queries/albums.queries';
+
+export const readAlbums = async () => {
+    return execute<Album[]>(albumQueries.readAlbums, []);
+};
+
+export const readAlbumsByArtist = async (artistName: string) => {
+    return execute<Album[]>(albumQueries.readAlbumsByArtist, [artistName]);
+};
+
+export const readAlbumsByArtistSearch = async (search: string) => {
+    console.log('search param', search);
+    return execute<Album[]>(albumQueries.readAlbumsByArtistSearch, [search]);
+};
+
+export const readAlbumsByDescriptionSearch = async (search: string) => {
+    console.log('search param', search);
+    return execute<Album[]>(albumQueries.readAlbumsByDescriptionSearch, [search]);
+};
+
+export const readAlbumsByAlbumId = async (albumId: number) => {
+    return execute<Album[]>(albumQueries.readAlbumsByAlbumId, [albumId]);
+};
+
+export const createAlbum = async (album: Album) => {
+    return execute<OkPacket>(albumQueries.createAlbum,
+    [album.title, album.artist, album.description, album.year, album.image] );
+};
+
+export const updateAlbum = async (album: Album) => {
+  return execute<OkPacket>(albumQueries.updateAlbum,
+  [album.title, album.artist, album.description, album.year, album.image, album.albumId]);
+};
+
+
+
+export const deleteAlbum = async (albumId: number) => {
+    return execute<OkPacket>(albumQueries.deleteAlbum, [albumId]);
+};
+
+
+
+
+/*import { execute } from '../services/mysql.connector';
+import { Album } from '../models/albums.model';
+import { albumQueries } from '../queries/albums.queries';
+
+export const AlbumDAO = {
+  getAll: async (): Promise<Album[]> => {
+    try {
+      return await execute<Album[]>(albumQueries.readAlbums, []);
+    } catch (error) {
+      throw new Error('Failed to retrieve albums');
+    }
+  },
+
+  getByArtistId: async (artistId: number): Promise<Album[]> => {
+    try {
+      return await execute<Album[]>(albumQueries.readAlbumsByArtistId, [artistId]);
+    } catch (error) {
+      throw new Error('Failed to retrieve albums by artistId');
+    }
+  },
+
+  create: async (artistId: number, year: string, image: string, description: string): Promise<any> => {
+    try {
+      return await execute(albumQueries.createAlbum, [artistId, year, image, description]);
+    } catch (error) {
+      throw new Error('Failed to create album');
+    }
+  },
+
+  update: async (id: number, artistId: number, year: string, image: string, description: string): Promise<any> => {
+    try {
+      return await execute(albumQueries.updateAlbum, [artistId, year, image, description, id]);
+    } catch (error) {
+      throw new Error('Failed to update album');
+    }
+  },
+
+  delete: async (id: number): Promise<any> => {
+    try {
+      return await execute(albumQueries.deleteAlbum, [id]);
+    } catch (error) {
+      throw new Error('Failed to delete album');
+    }
+  },
+};*/
